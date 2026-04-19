@@ -1016,15 +1016,15 @@
             if (configData.nama_cafe) {
                 document.getElementById('cafe-name-el').textContent = configData.nama_cafe;
                 document.title = configData.nama_cafe + " - Digital Menu";
-                document.getElementById('logo-fallback').textContent = configData.nama_cafe.charAt(0).toUpperCase();
+                document.getElementById('logo-fallback').textContent = String(configData.nama_cafe).charAt(0).toUpperCase();
             }
             if (configData.tagline) {
                 document.getElementById('tagline-el').textContent = configData.tagline;
             }
             if (configData.logo_url) {
-                document.getElementById('logo-container').innerHTML = `<img src="${configData.logo_url}" alt="${configData.nama_cafe || 'Logo'}" onerror="this.outerHTML='<div class=\\'logo-fallback\\'>${configData.nama_cafe ? configData.nama_cafe.charAt(0).toUpperCase() : 'C'}</div>'">`;
+                document.getElementById('logo-container').innerHTML = `<img src="${configData.logo_url}" alt="${configData.nama_cafe || 'Logo'}" onerror="this.outerHTML='<div class=\\'logo-fallback\\'>${configData.nama_cafe ? String(configData.nama_cafe).charAt(0).toUpperCase() : 'C'}</div>'">`;
             }
-            if (!configData.nomor_wa || configData.nomor_wa.trim() === "") {
+            if (!configData.nomor_wa || String(configData.nomor_wa).trim() === "") {
                 setTimeout(() => showToast("Nomor WhatsApp Admin belum dikonfigurasi."), 2000);
             }
         }
